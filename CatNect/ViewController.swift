@@ -58,7 +58,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getPosts() {
-        print("get posts was called")
         var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/posts")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
@@ -107,6 +106,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print(httpResponse.statusCode)
                 if(httpResponse.statusCode == 200) {
                     //login was successful, redirect to homepage
+                    variables.currentUser["username"] = self.usernameField.text!
+                    self.getUserInfo()
                     dispatch_async(dispatch_get_main_queue()) {
                         self.performSegueWithIdentifier("loginSegue", sender: self)
                     }
@@ -125,6 +126,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         self.passwordField.text = ""
                     }
                 }
+            }
+        })
+        task.resume()
+
+    }
+    
+    func getUserInfo() {
+        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/users")!)
+        let session = NSURLSession.sharedSession()
+        request.HTTPMethod = "GET"
+        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
+            if(error != nil) {
+                print(error)
+            } else {
+                let jsonData: NSArray?
+                do{
+                    jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as? NSArray
+                } catch _ {
+                    jsonData = nil
+                }
+                if let data = jsonData {
+                    //data != nil
+                    for var i = 0; i < data.count; i++ {
+                        if (data[i]["username"] as! String) == variables.currentUser["username"] {
+                            variables.currentUser["phone"] = (data[i]["phone"] as! String)
+                        }
+                    }
+                    print(variables.currentUser["phone"])
+                    print(variables.currentUser["username"])
+
+                    
+                }
+                
             }
         })
         task.resume()

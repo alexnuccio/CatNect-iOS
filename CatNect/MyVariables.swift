@@ -11,7 +11,8 @@ import Foundation
 struct variables {
     
     static var currentUser: [ String: String] = [
-        "username": "{hardcoded value}",
+        "username": "",
+        "phone": ""
     ]
     
     static var postBody = [String]()

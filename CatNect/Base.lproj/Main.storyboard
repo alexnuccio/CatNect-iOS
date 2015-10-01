@@ -333,6 +333,7 @@
                                 <action selector="whateveraction:" destination="sEk-VW-VRD" id="mWV-OM-bp1"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New Post" id="yvb-pN-u6u"/>
                     </navigationItem>
                     <connections>
                         <outlet property="feedTableView" destination="hk8-95-5Hq" id="caP-wY-g85"/>
