@@ -24,13 +24,20 @@
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-cI-JxO">
                                         <rect key="frame" x="227" y="333" width="147" height="55"/>
                                         <animations/>
-                                        <color key="backgroundColor" red="1" green="0.97189387189999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="147" id="tXh-pH-iQv"/>
                                             <constraint firstAttribute="height" constant="55" id="xdR-o4-ilZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                        <state key="normal" title="Login"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="login:" destination="27f-Rg-hmc" eventType="touchUpInside" id="OkS-BZ-L2e"/>
                                         </connections>
@@ -209,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="1851" y="-487"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed-->
         <scene sceneID="GLX-q7-sGh">
             <objects>
                 <viewController id="sEk-VW-VRD" customClass="ViewController" customModule="CatNect" customModuleProvider="target" sceneMemberID="viewController">
@@ -327,7 +334,7 @@
                             <constraint firstItem="hk8-95-5Hq" firstAttribute="top" secondItem="orp-yV-urh" secondAttribute="top" constant="129" id="sf9-3x-XOM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gEY-Rf-Thj">
+                    <navigationItem key="navigationItem" title="Feed" id="gEY-Rf-Thj">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="zu8-xd-kN2">
                             <connections>
                                 <action selector="whateveraction:" destination="sEk-VW-VRD" id="mWV-OM-bp1"/>
@@ -344,7 +351,7 @@
             </objects>
             <point key="canvasLocation" x="2535" y="-487"/>
         </scene>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="qHM-iV-Vt5">
             <objects>
                 <viewController id="rrM-tq-9Nu" customClass="ViewController" customModule="CatNect" customModuleProvider="target" sceneMemberID="viewController">
@@ -371,7 +378,7 @@
                             <constraint firstItem="H5y-Bk-54n" firstAttribute="top" secondItem="lPT-fP-3Yo" secondAttribute="bottom" constant="225" id="gi9-3c-R1z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FCB-kP-Kq2">
+                    <navigationItem key="navigationItem" title="Search" id="FCB-kP-Kq2">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="O8l-6h-qft"/>
                     </navigationItem>
                     <connections>
@@ -394,41 +401,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-Fg-qVd">
-                                <rect key="frame" x="20" y="179" width="231" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-Fg-qVd">
+                                <rect key="frame" x="185" y="168" width="231" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-Wf-MR2">
-                                <rect key="frame" x="20" y="112" width="231" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uJY-Wf-MR2">
+                                <rect key="frame" x="185" y="101" width="231" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="231" id="WZs-fW-Phg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1b-8O-qvV">
-                                <rect key="frame" x="20" y="83" width="93" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1b-8O-qvV">
+                                <rect key="frame" x="254" y="72" width="93" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="SKs-4c-Z2A"/>
+                                    <constraint firstAttribute="height" constant="21" id="lV0-cL-8Y1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-eG-JYA">
+                                <rect key="frame" x="254" y="139" width="93" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-eG-JYA">
-                                <rect key="frame" x="20" y="150" width="93" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seo-qr-sXP">
+                                <rect key="frame" x="244" y="206" width="112" height="21"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="900-5Q-P3u"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seo-qr-sXP">
-                                <rect key="frame" x="20" y="217" width="112" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqi-je-dFE">
-                                <rect key="frame" x="20" y="246" width="231" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqi-je-dFE">
+                                <rect key="frame" x="185" y="235" width="231" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -436,6 +453,23 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GKD-Fg-qVd" firstAttribute="leading" secondItem="dqi-je-dFE" secondAttribute="leading" id="13O-i4-xcO"/>
+                            <constraint firstItem="GKD-Fg-qVd" firstAttribute="top" secondItem="JUv-eG-JYA" secondAttribute="bottom" constant="8" symbolic="YES" id="1ba-cA-Tqw"/>
+                            <constraint firstItem="uJY-Wf-MR2" firstAttribute="trailing" secondItem="GKD-Fg-qVd" secondAttribute="trailing" id="42D-od-fua"/>
+                            <constraint firstItem="k1b-8O-qvV" firstAttribute="leading" secondItem="JUv-eG-JYA" secondAttribute="leading" id="AHP-qC-I1d"/>
+                            <constraint firstItem="seo-qr-sXP" firstAttribute="centerX" secondItem="GKD-Fg-qVd" secondAttribute="centerX" id="Ade-kr-wdS"/>
+                            <constraint firstItem="k1b-8O-qvV" firstAttribute="top" secondItem="BoM-BQ-gRL" secondAttribute="bottom" constant="8" symbolic="YES" id="EKk-EN-4OY"/>
+                            <constraint firstItem="GKD-Fg-qVd" firstAttribute="centerX" secondItem="uiy-YS-nPo" secondAttribute="centerX" id="JgB-s5-yPV"/>
+                            <constraint firstItem="uJY-Wf-MR2" firstAttribute="leading" secondItem="GKD-Fg-qVd" secondAttribute="leading" id="Kid-OV-wD8"/>
+                            <constraint firstItem="dqi-je-dFE" firstAttribute="top" secondItem="seo-qr-sXP" secondAttribute="bottom" constant="8" symbolic="YES" id="PPQ-QY-DqB"/>
+                            <constraint firstItem="JUv-eG-JYA" firstAttribute="top" secondItem="uJY-Wf-MR2" secondAttribute="bottom" constant="8" symbolic="YES" id="U98-Pv-j4K"/>
+                            <constraint firstItem="GKD-Fg-qVd" firstAttribute="trailing" secondItem="dqi-je-dFE" secondAttribute="trailing" id="XDT-yN-yGl"/>
+                            <constraint firstItem="seo-qr-sXP" firstAttribute="top" secondItem="GKD-Fg-qVd" secondAttribute="bottom" constant="8" symbolic="YES" id="YEE-iK-SSK"/>
+                            <constraint firstItem="k1b-8O-qvV" firstAttribute="centerX" secondItem="uJY-Wf-MR2" secondAttribute="centerX" id="ZmL-iO-jj5"/>
+                            <constraint firstItem="JUv-eG-JYA" firstAttribute="trailing" secondItem="k1b-8O-qvV" secondAttribute="trailing" id="l2X-Bb-YfA"/>
+                            <constraint firstItem="uJY-Wf-MR2" firstAttribute="top" secondItem="k1b-8O-qvV" secondAttribute="bottom" constant="8" symbolic="YES" id="mUl-9h-0O1"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="1O1-bG-fkG">
@@ -461,7 +495,7 @@
             </objects>
             <point key="canvasLocation" x="2535" y="850"/>
         </scene>
-        <!--View Controller-->
+        <!--Logout-->
         <scene sceneID="vYs-zg-SFG">
             <objects>
                 <viewController id="27C-2M-b5t" customClass="ViewController" customModule="CatNect" customModuleProvider="target" sceneMemberID="viewController">
@@ -484,7 +518,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="S7n-QY-JOZ">
+                    <navigationItem key="navigationItem" title="Logout" id="S7n-QY-JOZ">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="p30-tf-uJp"/>
                     </navigationItem>
                     <connections>

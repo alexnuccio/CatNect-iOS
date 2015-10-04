@@ -28,6 +28,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         feedTableView?.delegate = self
         feedTableView?.dataSource = self
         
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.BlackTranslucent
+        nav?.barTintColor = UIColor.redColor()
+        
+        
         for menu in self.Menu {
             menu.target = self.revealViewController()
             menu.action = Selector("revealToggle:")
