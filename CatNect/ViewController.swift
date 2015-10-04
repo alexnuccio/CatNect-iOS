@@ -153,8 +153,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             variables.currentUser["phone"] = (data[i]["phone"] as! String)
                         }
                     }
-                    print(variables.currentUser["phone"])
-                    print(variables.currentUser["username"])
+                    print(variables.currentUser["phone"]!)
+                    print(variables.currentUser["username"]!)
 
                     
                 }
