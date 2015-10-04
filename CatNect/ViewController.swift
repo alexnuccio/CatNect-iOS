@@ -150,6 +150,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     //data != nil
                     for var i = 0; i < data.count; i++ {
                         if (data[i]["username"] as! String) == variables.currentUser["username"] {
+                            variables.currentUser["password"] = (data[i]["password"] as! String)
                             variables.currentUser["phone"] = (data[i]["phone"] as! String)
                         }
                     }

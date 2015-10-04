@@ -18,6 +18,7 @@
 		5BE8F2081BB9DECB00EA21DC /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F2071BB9DECB00EA21DC /* BackTableVC.swift */; settings = {ASSET_TAGS = (); }; };
 		5BE8F20A1BBA50AD00EA21DC /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F2091BBA50AD00EA21DC /* FeedTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		5BE8F20C1BBA560B00EA21DC /* MyVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F20B1BBA560B00EA21DC /* MyVariables.swift */; settings = {ASSET_TAGS = (); }; };
+		BC4998131BBCC77C00CD868A /* profileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4998121BBCC77C00CD868A /* profileController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		5BE8F2071BB9DECB00EA21DC /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
 		5BE8F2091BBA50AD00EA21DC /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewCell.swift; path = ../FeedTableViewCell.swift; sourceTree = "<group>"; };
 		5BE8F20B1BBA560B00EA21DC /* MyVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVariables.swift; sourceTree = "<group>"; };
+		BC4998121BBCC77C00CD868A /* profileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				5BE8F1D41BB9DAE000EA21DC /* AppDelegate.swift */,
 				5BE8F1D61BB9DAE000EA21DC /* ViewController.swift */,
 				5BE8F1D81BB9DAE000EA21DC /* Main.storyboard */,
+				BC4998121BBCC77C00CD868A /* profileController.swift */,
 				5BE8F20B1BBA560B00EA21DC /* MyVariables.swift */,
 				5BE8F2091BBA50AD00EA21DC /* FeedTableViewCell.swift */,
 				5BE8F2071BB9DECB00EA21DC /* BackTableVC.swift */,
@@ -283,6 +286,7 @@
 				5BE8F1D71BB9DAE000EA21DC /* ViewController.swift in Sources */,
 				5BE8F1D51BB9DAE000EA21DC /* AppDelegate.swift in Sources */,
 				5BE8F2081BB9DECB00EA21DC /* BackTableVC.swift in Sources */,
+				BC4998131BBCC77C00CD868A /* profileController.swift in Sources */,
 				5BE8F2051BB9DBC100EA21DC /* SWRevealViewController.m in Sources */,
 				5BE8F20A1BBA50AD00EA21DC /* FeedTableViewCell.swift in Sources */,
 				5BE8F20C1BBA560B00EA21DC /* MyVariables.swift in Sources */,
@@ -517,6 +521,7 @@
 				5BE8F1FB1BB9DAE000EA21DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BE8F1FC1BB9DAE000EA21DC /* Build configuration list for PBXNativeTarget "CatNectTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				5BE8F1FE1BB9DAE000EA21DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BE8F1FF1BB9DAE000EA21DC /* Build configuration list for PBXNativeTarget "CatNectUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +539,7 @@
 				5BE8F2011BB9DAE000EA21DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,8 +10,9 @@ import Foundation
 
 struct variables {
     
-    static var currentUser: [ String: String] = [
+    static var currentUser: [ String: String ] = [
         "username": "",
+        "password": "",
         "phone": ""
     ]
     
@@ -19,6 +20,5 @@ struct variables {
     static var postUser = [String]()
     static var postDate = [String]()
     static var postLocation = [String]()
-    
     
 }
