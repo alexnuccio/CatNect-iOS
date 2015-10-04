@@ -379,7 +379,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="FCB-kP-Kq2">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="O8l-6h-qft"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="O8l-6h-qft"/>
                     </navigationItem>
                     <connections>
                         <outletCollection property="Menu" destination="O8l-6h-qft" collectionClass="NSMutableArray" id="3Pe-CP-bvG"/>
@@ -473,7 +473,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="1O1-bG-fkG">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="DsA-88-409"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="DsA-88-409"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="r03-eM-fs1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zGb-M8-VrH">
                                 <rect key="frame" x="447" y="7" width="133" height="30"/>
@@ -519,7 +519,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Logout" id="S7n-QY-JOZ">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="p30-tf-uJp"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="p30-tf-uJp"/>
                     </navigationItem>
                     <connections>
                         <outletCollection property="Menu" destination="p30-tf-uJp" collectionClass="NSMutableArray" id="DlZ-kJ-XGb"/>
