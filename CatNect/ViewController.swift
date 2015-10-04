@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.BlackTranslucent
         nav?.barTintColor = UIColor.redColor()
+        nav?.tintColor = UIColor.whiteColor()
         
         
         for menu in self.Menu {

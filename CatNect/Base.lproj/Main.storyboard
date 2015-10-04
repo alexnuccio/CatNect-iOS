@@ -216,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="1851" y="-487"/>
         </scene>
-        <!--Feed-->
+        <!--CatNect Feed-->
         <scene sceneID="GLX-q7-sGh">
             <objects>
                 <viewController id="sEk-VW-VRD" customClass="ViewController" customModule="CatNect" customModuleProvider="target" sceneMemberID="viewController">
@@ -334,8 +334,8 @@
                             <constraint firstItem="hk8-95-5Hq" firstAttribute="top" secondItem="orp-yV-urh" secondAttribute="top" constant="129" id="sf9-3x-XOM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="gEY-Rf-Thj">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="zu8-xd-kN2">
+                    <navigationItem key="navigationItem" title="CatNect Feed" id="gEY-Rf-Thj">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="zu8-xd-kN2">
                             <connections>
                                 <action selector="whateveraction:" destination="sEk-VW-VRD" id="mWV-OM-bp1"/>
                             </connections>
@@ -581,6 +581,9 @@
             <point key="canvasLocation" x="1851" y="182"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="44" height="44"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="oES-V1-AR8"/>
     </inferredMetricsTieBreakers>
