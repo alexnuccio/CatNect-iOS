@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var feedTableView: UITableView!
@@ -17,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    
+    var locationManager: CLLocationManager?
     
     
     override func viewDidLoad() {
@@ -40,11 +44,71 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //are location services available on this device?
+        if CLLocationManager.locationServicesEnabled() {
+            //do we have authorization to find location?
+            switch CLLocationManager.authorizationStatus() {
+            case .AuthorizedAlways :
+                createLocationManager(startImmediately: true)
+            case .AuthorizedWhenInUse:
+                createLocationManager(startImmediately: true)
+            case .Denied:
+                displayAlertWithTitle("Not determined", message: "Location services are not available")
+            case .NotDetermined:
+                //we do not know yet, have to ask
+                createLocationManager(startImmediately: false)
+                if let manager = self.locationManager{
+                    manager.requestWhenInUseAuthorization()
+                }
+            case .Restricted:
+                displayAlertWithTitle("Restriced", message: "Locatin services are not available")
+            }
+            
+        } else {
+            //location services are not available
+            print("Location services are not enabled, please enable them")
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func createLocationManager(startImmediately startImmediately: Bool) {
+        locationManager = CLLocationManager()
+        if let manager = locationManager {
+            print("Successfully created the location manager: \(startImmediately)")
+            manager.delegate = self
+            if startImmediately{
+                manager.startUpdatingLocation()
+            }
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        
+        //update currentUser variable to store new lat and long
+        let latitude: String = "\(newLocation.coordinate.latitude)"
+        let longitude: String = "\(newLocation.coordinate.longitude)"
+        variables.currentUser["latitude"] = latitude
+        variables.currentUser["longitude"] = longitude
+        print("lat: \(newLocation.coordinate.latitude)")
+        print("long: \(newLocation.coordinate.longitude)")
+        /*
+        if(!alreadySetupMap) {
+            println("lat: \(newLocation.coordinate.latitude)")
+            println("long: \(newLocation.coordinate.longitude)")
+            setupMap()
+        }
+        */
+    }
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: FeedTableViewCell = self.feedTableView?.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell

@@ -13,7 +13,9 @@ struct variables {
     static var currentUser: [ String: String ] = [
         "username": "",
         "password": "",
-        "phone": ""
+        "phone": "",
+        "latitude": "",
+        "longitude": ""
     ]
     
     static var postBody = [String]()

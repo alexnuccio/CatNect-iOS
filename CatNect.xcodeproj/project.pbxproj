@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B88F6AD1BC3B5C90010B412 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B88F6AC1BC3B5C90010B412 /* MapKit.framework */; };
 		5BE8F1D51BB9DAE000EA21DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F1D41BB9DAE000EA21DC /* AppDelegate.swift */; };
 		5BE8F1D71BB9DAE000EA21DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F1D61BB9DAE000EA21DC /* ViewController.swift */; };
 		5BE8F1DA1BB9DAE000EA21DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE8F1D81BB9DAE000EA21DC /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B88F6AC1BC3B5C90010B412 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5BE8F1D11BB9DAE000EA21DC /* CatNect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatNect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE8F1D41BB9DAE000EA21DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BE8F1D61BB9DAE000EA21DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B88F6AD1BC3B5C90010B412 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +92,7 @@
 		5BE8F1C81BB9DAE000EA21DC = {
 			isa = PBXGroup;
 			children = (
+				5B88F6AC1BC3B5C90010B412 /* MapKit.framework */,
 				5BE8F1D31BB9DAE000EA21DC /* CatNect */,
 				5BE8F1E81BB9DAE000EA21DC /* CatNectTests */,
 				5BE8F1F31BB9DAE000EA21DC /* CatNectUITests */,
@@ -220,6 +224,11 @@
 				TargetAttributes = {
 					5BE8F1D01BB9DAE000EA21DC = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					5BE8F1E41BB9DAE000EA21DC = {
 						CreatedOnToolsVersion = 7.0;
