@@ -10,10 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
     @IBOutlet weak var feedTableView: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var Menu: Array<UIBarButtonItem> = []
 
     @IBOutlet weak var usernameField: UITextField!
@@ -22,6 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var locationManager: CLLocationManager?
     
+    var alreadySetupMap: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         getPosts()
         
+        mapView?.delegate = self
         feedTableView?.delegate = self
         feedTableView?.dataSource = self
         
@@ -79,6 +82,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+    func setupMap(){
+        //innitialize map and markers
+        let latitude: Double = Double(variables.currentUser["latitude"]!)!
+        let longitude: Double = Double(variables.currentUser["longitude"]!)!
+        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapView?.setRegion(region, animated: true)
+        mapView?.showsUserLocation = true
+        //placeMarkers()
+        alreadySetupMap = true;
+    }
+    
     func createLocationManager(startImmediately startImmediately: Bool) {
         locationManager = CLLocationManager()
         if let manager = locationManager {
@@ -97,15 +114,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let longitude: String = "\(newLocation.coordinate.longitude)"
         variables.currentUser["latitude"] = latitude
         variables.currentUser["longitude"] = longitude
-        print("lat: \(newLocation.coordinate.latitude)")
-        print("long: \(newLocation.coordinate.longitude)")
-        /*
         if(!alreadySetupMap) {
-            println("lat: \(newLocation.coordinate.latitude)")
-            println("long: \(newLocation.coordinate.longitude)")
+            print("lat: \(newLocation.coordinate.latitude)")
+            print("long: \(newLocation.coordinate.longitude)")
             setupMap()
         }
-        */
     }
     
     
@@ -224,10 +237,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             variables.currentUser["phone"] = (data[i]["phone"] as! String)
                         }
                     }
-                    print(variables.currentUser["phone"]!)
-                    print(variables.currentUser["username"]!)
-
-                    
                 }
                 
             }

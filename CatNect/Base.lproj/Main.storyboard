@@ -380,7 +380,7 @@
         <!--Map-->
         <scene sceneID="0Df-XU-roT">
             <objects>
-                <viewController id="JEw-3V-27h" sceneMemberID="viewController">
+                <viewController id="JEw-3V-27h" customClass="ViewController" customModule="CatNect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xhY-jS-ivK"/>
                         <viewControllerLayoutGuide type="bottom" id="CUz-T6-A1s"/>
@@ -388,10 +388,30 @@
                     <view key="view" contentMode="scaleToFill" id="xpg-4J-Z2X">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aem-6A-b7F">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="aem-6A-b7F" secondAttribute="trailing" constant="-20" id="5rq-Fm-BFi"/>
+                            <constraint firstItem="CUz-T6-A1s" firstAttribute="top" secondItem="aem-6A-b7F" secondAttribute="bottom" id="DLU-4t-tw3"/>
+                            <constraint firstItem="aem-6A-b7F" firstAttribute="leading" secondItem="xpg-4J-Z2X" secondAttribute="leadingMargin" constant="-20" id="VgP-ID-th7"/>
+                            <constraint firstItem="aem-6A-b7F" firstAttribute="top" secondItem="xhY-jS-ivK" secondAttribute="bottom" id="ZUZ-E3-zB6"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="47N-sj-O0y"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Map" id="47N-sj-O0y">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="By5-t6-hSz"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="aem-6A-b7F" id="Feb-Bj-iyd"/>
+                        <outletCollection property="Menu" destination="By5-t6-hSz" collectionClass="NSMutableArray" id="Jxs-6G-GpB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="el6-ij-9bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
