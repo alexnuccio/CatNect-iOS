@@ -22,5 +22,7 @@ struct variables {
     static var postUser = [String]()
     static var postDate = [String]()
     static var postLocation = [String]()
+    static var postLatitude = [Double]()
+    static var postLongitude = [Double]()
     
 }

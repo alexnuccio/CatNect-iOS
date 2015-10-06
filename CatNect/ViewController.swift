@@ -92,8 +92,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let region = MKCoordinateRegion(center: location, span: span)
         mapView?.setRegion(region, animated: true)
         mapView?.showsUserLocation = true
-        //placeMarkers()
+        placeMarkers()
         alreadySetupMap = true;
+    }
+    
+    func placeMarkers() {
+        //add markers on the map for every post
+        for var i = 0; i < variables.postBody.count; i++ {
+            let lat: Double = Double(variables.postLatitude[i])
+            let long = Double(variables.postLongitude[i])
+            let pinLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            let pin = MKPointAnnotation()
+            pin.coordinate = pinLocation
+            pin.title = variables.postLocation[i]
+            self.mapView?.addAnnotation(pin)
+        }
     }
     
     func createLocationManager(startImmediately startImmediately: Bool) {
@@ -127,8 +140,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell: FeedTableViewCell = self.feedTableView?.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell
         cell.userField.text = variables.postUser[indexPath.row]
         cell.bodyField.text = variables.postBody[indexPath.row]
-        cell.dateField.text = variables.postDate[indexPath.row]
         cell.locationField.text = variables.postLocation[indexPath.row]
+        //filter postDate to display meaningful string
+        let str = variables.postDate[indexPath.row]
+        let year:String = str.substringWithRange(Range<String.Index>(start: str.startIndex, end: str.startIndex.advancedBy(4)))
+        let month:String = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(5), end: str.startIndex.advancedBy(7)))
+        let day: String = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(8), end: str.startIndex.advancedBy(10)))
+        //set filtered string to dateField of cell
+        cell.dateField.text = "\(month)-\(day)-\(year)"
         return cell;
     }
     
@@ -160,12 +179,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     variables.postUser = []
                     variables.postDate = []
                     variables.postLocation = []
+                    variables.postLatitude = []
+                    variables.postLongitude = []
                     for var i = 0; i < data.count; i++ {
                         print(data[i]["body"] as! String)
                         variables.postBody.append(data[i]["body"] as! String)
                         variables.postUser.append(data[i]["username"] as! String)
                         variables.postDate.append(data[i]["date"] as! String)
                         variables.postLocation.append(data[i]["location"] as! String)
+                        variables.postLatitude.append(data[i]["latitude"] as! Double)
+                        variables.postLongitude.append(data[i]["longitude"] as! Double)
                     }
                 }
                 
