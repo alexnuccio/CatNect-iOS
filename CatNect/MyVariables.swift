@@ -25,4 +25,12 @@ struct variables {
     static var postLatitude = [Double]()
     static var postLongitude = [Double]()
     
+    static var postToDisplay: [ String: String ] = [
+        "username": "",
+        "body": "",
+        "location": "",
+        "latitude": "",
+        "longitude": ""
+    ]
+    
 }

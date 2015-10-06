@@ -151,6 +151,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell;
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        variables.postToDisplay["username"] = variables.postUser[indexPath.row]
+        variables.postToDisplay["body"] = variables.postBody[indexPath.row]
+        variables.postToDisplay["location"] = variables.postLocation[indexPath.row]
+        variables.postToDisplay["latitude"] = "\(variables.postLatitude[indexPath.row])"
+        variables.postToDisplay["longitude"] = "\(variables.postLongitude[indexPath.row])"
+        dispatch_async(dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("displayPostSegue", sender: self)
+        }
+        
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return variables.postBody.count
     }
