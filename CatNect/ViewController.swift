@@ -138,6 +138,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: FeedTableViewCell = self.feedTableView?.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell
+        //error checking (if new post was added, indexPath will be out of range until posts are updated)
+        if(indexPath.row > variables.postBody.count) {
+            return cell
+        }
         cell.userField.text = variables.postUser[indexPath.row]
         cell.bodyField.text = variables.postBody[indexPath.row]
         cell.locationField.text = variables.postLocation[indexPath.row]
@@ -148,7 +152,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let day: String = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(8), end: str.startIndex.advancedBy(10)))
         //set filtered string to dateField of cell
         cell.dateField.text = "\(month)-\(day)-\(year)"
-        return cell;
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -172,7 +176,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getPosts() {
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/posts")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/posts")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
@@ -202,6 +206,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         variables.postLatitude.append(data[i]["latitude"] as! Double)
                         variables.postLongitude.append(data[i]["longitude"] as! Double)
                     }
+                    variables.postBody = variables.postBody.reverse()
+                    variables.postUser = variables.postUser.reverse()
+                    variables.postLocation = variables.postLocation.reverse()
+                    variables.postDate = variables.postDate.reverse()
+                    variables.postLatitude = variables.postLatitude.reverse()
+                    variables.postLongitude = variables.postLongitude.reverse()
                 }
                 
             }
@@ -210,7 +220,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     @IBAction func login(sender: UIButton) {
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/login")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/login")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         let username = usernameField.text!
@@ -251,7 +261,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getUserInfo() {
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/users")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/users")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
@@ -284,6 +294,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         controller.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func logout(sender: UIButton) {
+        variables.currentUser["username"] = ""
+        variables.currentUser["phone"] = ""
+        variables.currentUser["password"] = ""
+        dispatch_async(dispatch_get_main_queue()){
+            self.performSegueWithIdentifier("logoutSegue", sender: self)
+        }
+    }
+    
+    @IBAction func newPost(sender: UIBarButtonItem) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("newPostSegue", sender: self)
+        }
     }
 
 }
