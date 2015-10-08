@@ -22,14 +22,19 @@ class NewPostController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func submitClicked(sender: UIButton) {
+        //error checking
+        if locationText.text == nil || descriptionText.text == nil {
+            self.displayAlertWithTitle("Must fill out all required forms", message: "Please fill out all the required fields.")
+            return
+        }
         let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/newPost")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
-        var date: String = "\((datePicker?.date)!)"
+        var date: String = "\((datePicker.date))"
         date = date.substringWithRange(Range<String.Index>(start: date.startIndex, end: date.startIndex.advancedBy(19)))
-        let location = locationText?.text!
+        let location = locationText.text!
         //let title = titleText?.text
-        let bodyText = descriptionText?.text!
+        let bodyText = descriptionText.text!
         let username = variables.currentUser["username"]!
         //TODO:add title to post
         let string: NSString = "username=\(username)&date=\(date)&location=\(location)&body=\(bodyText)"
