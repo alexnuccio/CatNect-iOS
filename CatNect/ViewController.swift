@@ -311,6 +311,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.performSegueWithIdentifier("newPostSegue", sender: self)
         }
     }
+    
+    
+    @IBAction func gotoRegister(sender: UIButton) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("registerSegue", sender: self)
+        }
+    }
 
 }
 
