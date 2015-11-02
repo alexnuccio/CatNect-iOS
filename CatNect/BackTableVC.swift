@@ -14,7 +14,7 @@ class BackTableVC: UITableViewController {
     var tableArray = [String]()
     
     override func viewDidLoad() {
-        tableArray = ["Event Feed", "Search Events", "Profile", "Logout"]
+        tableArray = ["Event Feed", "Search Events", "My Events", "Profile", "Logout"]
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

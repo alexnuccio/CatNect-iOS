@@ -198,7 +198,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     variables.postLatitude = []
                     variables.postLongitude = []
                     for var i = 0; i < data.count; i++ {
-                        print(data[i]["body"] as! String)
+                        //print(data[i]["body"] as! String)
                         variables.postBody.append(data[i]["body"] as! String)
                         variables.postUser.append(data[i]["username"] as! String)
                         variables.postDate.append(data[i]["date"] as! String)
@@ -218,6 +218,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         })
         task.resume()
     }
+    
+    
+
 
     @IBAction func login(sender: UIButton) {
         let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/login")!)
@@ -236,6 +239,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     //login was successful, redirect to homepage
                     variables.currentUser["username"] = self.usernameField.text!
                     self.getUserInfo()
+                    self.getMyPosts()
                     dispatch_async(dispatch_get_main_queue()) {
                         self.performSegueWithIdentifier("loginSegue", sender: self)
                     }
@@ -289,6 +293,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.resume()
 
     }
+    
+    func getMyPosts() {
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/myPosts")!)
+        let session = NSURLSession.sharedSession()
+        request.HTTPMethod = "GET"
+        let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
+            if(error != nil) {
+                print(error)
+            } else {
+                let jsonData: NSArray?
+                do{
+                    jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as? NSArray
+                } catch _ {
+                    jsonData = nil
+                }
+                if let data = jsonData {
+                    //data != nil
+                    variables.myPostBody = []
+                    variables.myPostUser = []
+                    variables.myPostDate = []
+                    variables.myPostLocation = []
+                    variables.myPostLatitude = []
+                    variables.myPostLongitude = []
+                    for var i = 0; i < data.count; i++ {
+                        print(data[i]["body"] as! String)
+                        variables.myPostBody.append(data[i]["body"] as! String)
+                        variables.myPostUser.append(data[i]["username"] as! String)
+                        variables.myPostDate.append(data[i]["date"] as! String)
+                        variables.myPostLocation.append(data[i]["location"] as! String)
+                        variables.myPostLatitude.append(data[i]["latitude"] as! Double)
+                        variables.myPostLongitude.append(data[i]["longitude"] as! Double)
+                    }
+                    variables.myPostBody = variables.myPostBody.reverse()
+                    variables.myPostUser = variables.myPostUser.reverse()
+                    variables.myPostLocation = variables.myPostLocation.reverse()
+                    variables.myPostDate = variables.myPostDate.reverse()
+                    variables.myPostLatitude = variables.myPostLatitude.reverse()
+                    variables.myPostLongitude = variables.myPostLongitude.reverse()
+                }
+                
+            }
+        })
+        task.resume()
+    }
+
     
     func displayAlertWithTitle(tite: String, message: String) {
         let controller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
