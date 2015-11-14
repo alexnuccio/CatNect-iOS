@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var passwordField: UITextField!
     
     
+    
     var locationManager: CLLocationManager?
     
     var alreadySetupMap: Bool = false
@@ -50,6 +51,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        for menu in self.Menu {
+            menu.target = self.revealViewController()
+            menu.action = Selector("revealToggle:")
+        }
         
         //are location services available on this device?
         if CLLocationManager.locationServicesEnabled() {

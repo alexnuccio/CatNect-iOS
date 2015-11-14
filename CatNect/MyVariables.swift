@@ -35,6 +35,7 @@ struct variables {
     static var postToDisplay: [ String: String ] = [
         "username": "",
         "body": "",
+        "title": "",
         "location": "",
         "latitude": "",
         "longitude": ""
