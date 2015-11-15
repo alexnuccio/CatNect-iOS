@@ -20,6 +20,8 @@ struct variables {
     
     static var postBody = [String]()
     static var postUser = [String]()
+    static var postTitle = [String]()
+    static var postCategory = [String]()
     static var postDate = [String]()
     static var postLocation = [String]()
     static var postLatitude = [Double]()
@@ -36,6 +38,7 @@ struct variables {
         "username": "",
         "body": "",
         "title": "",
+        "category": "",
         "location": "",
         "latitude": "",
         "longitude": ""

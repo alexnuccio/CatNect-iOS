@@ -21,7 +21,7 @@ class NewPostController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var categoryPicker: UIPickerView!
     
-    var categoryArray: [String] = ["Sports", "Clubs", "Food", "Academic", "Music", "Shows", "Exhibition", "Greek", "Other"]
+    var categoryArray: [String] = ["Sports", "Clubs", "Social Gathering", "Food", "Academic", "Music", "Shows", "Exhibition", "Greek", "Other"]
     
     var locationManager: CLLocationManager?
     

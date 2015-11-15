@@ -30,6 +30,8 @@ class MyPostController: UIViewController, UITableViewDataSource, UITableViewDele
         myTableView?.delegate = self
         myTableView?.dataSource = self
         
+        self.automaticallyAdjustsScrollViewInsets = false;
+        
     }
     
     override func viewDidAppear(animated: Bool) {

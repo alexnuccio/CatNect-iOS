@@ -46,6 +46,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             menu.target = self.revealViewController()
             menu.action = Selector("revealToggle:")
         }
+        self.automaticallyAdjustsScrollViewInsets = false;
         
     }
     
@@ -164,6 +165,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         variables.postToDisplay["username"] = variables.postUser[indexPath.row]
         variables.postToDisplay["body"] = variables.postBody[indexPath.row]
+        variables.postToDisplay["title"] = variables.postTitle[indexPath.row]
+        variables.postToDisplay["category"] = variables.postCategory[indexPath.row]
         variables.postToDisplay["location"] = variables.postLocation[indexPath.row]
         variables.postToDisplay["latitude"] = "\(variables.postLatitude[indexPath.row])"
         variables.postToDisplay["longitude"] = "\(variables.postLongitude[indexPath.row])"
@@ -199,6 +202,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     //data != nil
                     variables.postBody = []
                     variables.postUser = []
+                    variables.postTitle = []
+                    variables.postCategory = []
                     variables.postDate = []
                     variables.postLocation = []
                     variables.postLatitude = []
@@ -207,6 +212,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         //print(data[i]["body"] as! String)
                         variables.postBody.append(data[i]["body"] as! String)
                         variables.postUser.append(data[i]["username"] as! String)
+                        variables.postTitle.append(data[i]["title"] as! String)
+                        variables.postCategory.append(data[i]["category"] as! String)
                         variables.postDate.append(data[i]["date"] as! String)
                         variables.postLocation.append(data[i]["location"] as! String)
                         variables.postLatitude.append(data[i]["latitude"] as! Double)
@@ -214,6 +221,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     }
                     variables.postBody = variables.postBody.reverse()
                     variables.postUser = variables.postUser.reverse()
+                    variables.postTitle = variables.postTitle.reverse()
+                    variables.postCategory = variables.postCategory.reverse()
                     variables.postLocation = variables.postLocation.reverse()
                     variables.postDate = variables.postDate.reverse()
                     variables.postLatitude = variables.postLatitude.reverse()

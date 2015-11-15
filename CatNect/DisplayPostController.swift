@@ -15,6 +15,8 @@ class DisplayPostController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var eventLocation: UILabel!
     @IBOutlet weak var eventBody: UILabel!
+    @IBOutlet weak var eventUser: UILabel!
+    @IBOutlet weak var eventCategory: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +27,16 @@ class DisplayPostController: UIViewController, MKMapViewDelegate {
         //setup labels
         let user: String = variables.postToDisplay["username"]!
         let location: String = variables.postToDisplay["location"]!
+        let title: String = variables.postToDisplay["title"]!
         let body: String = variables.postToDisplay["body"]!
-        eventTitle?.text = "\(user)'s Event"
+        let category: String = variables.postToDisplay["category"]!
+        eventUser?.text = "\(user)'s Event"
+        eventTitle?.text = "\(title)"
         eventLocation?.text = "\(location)"
         eventBody?.text = "\(body)"
+        eventCategory?.text = "Category: \(category)"
+        
+        self.automaticallyAdjustsScrollViewInsets = false;
     }
     
     override func viewDidAppear(animated: Bool) {
