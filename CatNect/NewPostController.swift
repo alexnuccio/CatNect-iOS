@@ -33,7 +33,7 @@ class NewPostController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.displayAlertWithTitle("Must fill out all required forms", message: "Please fill out all the required fields.")
             return
         }
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/newPost")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/newPost")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         var date: String = "\((datePicker.date))"
@@ -105,8 +105,8 @@ class NewPostController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let annotation = MKPointAnnotation()
             annotation.coordinate = newCoordinates
             print("COORDINATED: \(newCoordinates.latitude) & \(newCoordinates.longitude)")
-            postLatitude = newCoordinates.latitude as! Double
-            postLongitude = newCoordinates.longitude as! Double
+            postLatitude = newCoordinates.latitude as Double
+            postLongitude = newCoordinates.longitude as Double
             
             
             self.mapView!.addAnnotation(annotation)

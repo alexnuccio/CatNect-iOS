@@ -41,7 +41,7 @@ class RegisterController: UIViewController {
             return
         }
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/register")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/register")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         let username = usernameField.text!
