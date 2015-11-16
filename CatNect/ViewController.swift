@@ -185,7 +185,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getPosts() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/posts")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://catnect.herokuapp.com/posts")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
@@ -238,7 +238,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
     @IBAction func login(sender: UIButton) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/login")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://catnect.herokuapp.com/login")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         let username = usernameField.text!
@@ -280,7 +280,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getUserInfo() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/users")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://catnect.herokuapp.com/users")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
@@ -310,7 +310,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getMyPosts() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/myPosts")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://catnect.herokuapp.com/myPosts")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in

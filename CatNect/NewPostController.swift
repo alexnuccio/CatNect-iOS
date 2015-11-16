@@ -33,7 +33,7 @@ class NewPostController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.displayAlertWithTitle("Must fill out all required forms", message: "Please fill out all the required fields.")
             return
         }
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://thawing-beyond-7980.herokuapp.com/newPost")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://catnect.herokuapp.com/newPost")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         var date: String = "\((datePicker.date))"
