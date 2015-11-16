@@ -95,7 +95,14 @@ class NewPostController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         longPressGesture.minimumPressDuration = 2;
         mapView.addGestureRecognizer(longPressGesture)
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
+        
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func addPin(gesture: UILongPressGestureRecognizer) {
