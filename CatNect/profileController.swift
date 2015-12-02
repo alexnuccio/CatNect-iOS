@@ -31,7 +31,7 @@ class profileController: ViewController {
     }
     
     @IBAction func updateInformation(sender: UIButton) {
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:8000/updateInfo")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://catnect.herokuapp.com/updateInfo")!)
         let session = NSURLSession.sharedSession()
         request.HTTPMethod = "POST"
         let username = usernameLabel.text!

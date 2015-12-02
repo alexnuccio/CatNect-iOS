@@ -146,7 +146,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: FeedTableViewCell = self.feedTableView?.dequeueReusableCellWithIdentifier("cell") as! FeedTableViewCell
         //error checking (if new post was added, indexPath will be out of range until posts are updated)
-        if(indexPath.row > variables.postBody.count) {
+        if(indexPath.row >= variables.postBody.count) {
             return cell
         }
         cell.userField.text = variables.postUser[indexPath.row]
@@ -243,7 +243,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         request.HTTPMethod = "POST"
         let username = usernameField.text!
         let password = passwordField.text!
-        let string: NSString = "username=\(username)&password=\(password)"
+        let lat = variables.currentUser["latitude"]!
+        let long = variables.currentUser["longitude"]!
+        let string: NSString = "username=\(username)&password=\(password)&latitude=\(lat)&longitude=\(long)"
         let body = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
         request.HTTPBody = body
         

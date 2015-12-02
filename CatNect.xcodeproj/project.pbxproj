@@ -24,6 +24,8 @@
 		5BE8F2081BB9DECB00EA21DC /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F2071BB9DECB00EA21DC /* BackTableVC.swift */; };
 		5BE8F20A1BBA50AD00EA21DC /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F2091BBA50AD00EA21DC /* FeedTableViewCell.swift */; };
 		5BE8F20C1BBA560B00EA21DC /* MyVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE8F20B1BBA560B00EA21DC /* MyVariables.swift */; };
+		5BF84CE91BFEA2D20056FC66 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84CE81BFEA2D20056FC66 /* SearchController.swift */; };
+		5BF84CEB1C03DBAF0056FC66 /* DisplaySearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF84CEA1C03DBAF0056FC66 /* DisplaySearchController.swift */; };
 		BC4998131BBCC77C00CD868A /* profileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4998121BBCC77C00CD868A /* profileController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,8 @@
 		5BE8F2071BB9DECB00EA21DC /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
 		5BE8F2091BBA50AD00EA21DC /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewCell.swift; path = ../FeedTableViewCell.swift; sourceTree = "<group>"; };
 		5BE8F20B1BBA560B00EA21DC /* MyVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyVariables.swift; sourceTree = "<group>"; };
+		5BF84CE81BFEA2D20056FC66 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		5BF84CEA1C03DBAF0056FC66 /* DisplaySearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySearchController.swift; sourceTree = "<group>"; };
 		BC4998121BBCC77C00CD868A /* profileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,9 +131,11 @@
 				5BE8F1D41BB9DAE000EA21DC /* AppDelegate.swift */,
 				5BE8F1D61BB9DAE000EA21DC /* ViewController.swift */,
 				5BE8F1D81BB9DAE000EA21DC /* Main.storyboard */,
+				5BF84CEA1C03DBAF0056FC66 /* DisplaySearchController.swift */,
 				5B20017B1BE6EA5F008325F2 /* MyPostController.swift */,
 				5B88F6B61BC7601B0010B412 /* RegisterController.swift */,
 				5B88F6B41BC49FB60010B412 /* NewPostController.swift */,
+				5BF84CE81BFEA2D20056FC66 /* SearchController.swift */,
 				5B88F6B01BC465340010B412 /* DisplayPostController.swift */,
 				BC4998121BBCC77C00CD868A /* profileController.swift */,
 				5BE8F20B1BBA560B00EA21DC /* MyVariables.swift */,
@@ -309,12 +315,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B88F6B71BC7601B0010B412 /* RegisterController.swift in Sources */,
+				5BF84CEB1C03DBAF0056FC66 /* DisplaySearchController.swift in Sources */,
 				5BE8F1D71BB9DAE000EA21DC /* ViewController.swift in Sources */,
 				5BE8F1D51BB9DAE000EA21DC /* AppDelegate.swift in Sources */,
 				5B88F6B51BC49FB60010B412 /* NewPostController.swift in Sources */,
 				5BE8F2081BB9DECB00EA21DC /* BackTableVC.swift in Sources */,
 				BC4998131BBCC77C00CD868A /* profileController.swift in Sources */,
 				5BE8F2051BB9DBC100EA21DC /* SWRevealViewController.m in Sources */,
+				5BF84CE91BFEA2D20056FC66 /* SearchController.swift in Sources */,
 				5BE8F20A1BBA50AD00EA21DC /* FeedTableViewCell.swift in Sources */,
 				5B88F6B11BC465340010B412 /* DisplayPostController.swift in Sources */,
 				5B20017C1BE6EA5F008325F2 /* MyPostController.swift in Sources */,
