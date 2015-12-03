@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         
         getPosts()
+        getMyPosts()
         
         mapView?.delegate = self
         feedTableView?.delegate = self
@@ -327,12 +328,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 if let data = jsonData {
                     //data != nil
-                    variables.myPostBody = []
-                    variables.myPostUser = []
-                    variables.myPostDate = []
-                    variables.myPostLocation = []
-                    variables.myPostLatitude = []
-                    variables.myPostLongitude = []
+                    variables.myPostBody.removeAll()
+                    variables.myPostUser.removeAll()
+                    variables.myPostDate.removeAll()
+                    variables.myPostLocation.removeAll()
+                    variables.myPostLatitude.removeAll()
+                    variables.myPostLongitude.removeAll()
                     for var i = 0; i < data.count; i++ {
                         print(data[i]["body"] as! String)
                         variables.myPostBody.append(data[i]["body"] as! String)

@@ -69,7 +69,14 @@ class SearchController: UIViewController, UIPickerViewDelegate, UIPickerViewData
             if let httpResponse = response as? NSHTTPURLResponse {
                 print(httpResponse.statusCode)
                 if(httpResponse.statusCode == 200) {
-                    //success - do nothing
+                    //success
+                    
+                    //now process get request to get selected posts
+                    self.getCategorySearchResults()
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.performSegueWithIdentifier("displayResults", sender: self)
+                    }
                 } else {
                     //fail - show message
                     dispatch_async(dispatch_get_main_queue()){
@@ -81,12 +88,7 @@ class SearchController: UIViewController, UIPickerViewDelegate, UIPickerViewData
         })
         task.resume()
         
-        //now process get request to get selected posts
-        getCategorySearchResults()
         
-        dispatch_async(dispatch_get_main_queue()){
-            self.performSegueWithIdentifier("displayResults", sender: self)
-        }
         
     }
 
@@ -104,7 +106,13 @@ class SearchController: UIViewController, UIPickerViewDelegate, UIPickerViewData
             if let httpResponse = response as? NSHTTPURLResponse {
                 print(httpResponse.statusCode)
                 if(httpResponse.statusCode == 200) {
-                    //success - do nothing
+                    //success
+                    
+                    self.getDistanceSearchResults()
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        self.performSegueWithIdentifier("displayResults", sender: self)
+                    }
                 } else {
                     //fail - show message
                     dispatch_async(dispatch_get_main_queue()){
@@ -116,11 +124,7 @@ class SearchController: UIViewController, UIPickerViewDelegate, UIPickerViewData
         })
         task.resume()
         
-        getDistanceSearchResults()
         
-        dispatch_async(dispatch_get_main_queue()){
-            self.performSegueWithIdentifier("displayResults", sender: self)
-        }
 
         
     }
